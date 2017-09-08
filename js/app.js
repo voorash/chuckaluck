@@ -1,8 +1,8 @@
 // config
-var bank = 'steemdice1';
+var bank = 'chuckaluck';
 var houseedge = 0.02;
-var maxwin_steem = 100;
-var maxwin_sbd = 25;
+var maxwin_steem = 5;
+var maxwin_sbd = 5;
 
 var steemws = 'wss://steemd.steemit.com';
 
@@ -25,7 +25,7 @@ var wif = '';
 $( document ).ready(function() {
 
   steem.config.set('websocket',steemws);
-  
+
   // fill in variables
   $("#houseEdge").text(houseedge * 100);
   $("#max_win_steem").text(maxwin_steem);
@@ -198,7 +198,7 @@ $( document ).ready(function() {
       }
 
       chance = $("#bet_chance").val();
-      steem.broadcast.transfer(wif, user, bank, amount, '{"ui":"steemdice.net","type":"lower","number":'+chance+'}', function(err, result) {
+      steem.broadcast.transfer(wif, user, bank, amount, '{"ui":"chuckaluck","type":"lower","number":'+chance+'}', function(err, result) {
 
         $("#rolling").hide();
         if(err !== null) {
